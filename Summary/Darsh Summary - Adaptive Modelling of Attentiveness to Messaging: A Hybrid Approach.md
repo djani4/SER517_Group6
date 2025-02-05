@@ -1,4 +1,4 @@
-**Summary for Adaptive Modelling of A!entiveness to Messaging: A Hybrid Approach Paper**
+**Summary for Adaptive Modelling of Attentiveness to Messaging: A Hybrid Approach Paper**
 
 
 This research paper primarily focuses on issues and challenges related to determining when a user is not paying attention to mobile messaging and other related problems as well . Many people experience social pressure to reply to messages quickly, and not doing so can result in misunderstandings and damaged relationships with others over time. The goal of the project is to develop a prediction model that can identify user unavailability and then produce automated solutions to mitigate the load of immediate responses.
