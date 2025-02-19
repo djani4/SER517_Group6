@@ -1,29 +1,40 @@
-Summary for "My Phone and Me: Understanding People's Receptivity to Mobile Notifications" Research Paper
+Summary for My Phone and Me: Understanding People's Receptivity to Mobile Notifications Research Paper
 
-This research describes user receptivity to mobile notifications by framing it as a problem of adaptive messaging, which is very similar and aligns closely with attentive messaging systems. The "My Phone and Me" study uses a context-aware approach to understand how various factors influence a user's willingness to engage with notifications at different times. By collecting objective data that includes notification interaction times, and subjective data, such as user-reported disruption and context in a real-world environment, the research paper aims to model and predict opportune moments for delivering notifications by mirroring the adaptive modeling approach.
 
-The main topics discussed in this paper are:
+This research describes user receptivity to mobile notifications by framing it as a problem of adaptive messaging, 
+which is very similar and aligns closely with attentive messaging systems. The "My Phone and Me" study uses a context 
+aware approach to understand how various factors influence a user's willingness to engage with notifications at different times. 
+By collecting objective data that includes notification interaction times, and subjective data, such as user reported disruption and context in 
+a real world environment, the research paper aims to model and predict opportune moments for delivering notifications by mirroring the adaptive modeling approach.
 
- 1. Notification Alert Perception
-- Mobile phone users are usually aware of notifications even when the phone is in silent mode (85.37% noticed).
-- Vibration mode on mobile devices leads to the fastest awareness (84.62% noticed).
-- Sound-only mode (76.25% noticed) and sound with vibrate (78.95% noticed) were less effective than silent or vibrate-only modes.
+The main topics which ae discussed in this paper are:
 
- 2. Factors that Influence Seen Time
-- Alert Modality: Vibrate-only notifications on mobile devices were seen fastest (avg. 3m 21s), followed by sound with vibrate (4m 50s), sound-only (5m 57s), and silent (7m 33s).
-- Ongoing Task: Notifications on mobile devices were seen fastest during communication tasks (avg. 47s) and slowest when users were idle (9m 30s).
-- Task Complexity: Tasks that were more complex correlated with faster seen times, possibly due to increased alertness.
+1.	Notification Alert Perception:
+•	Mobile phone users are usually aware of notifications even when phone is in silent mode (85.37% noticed).
+•	Vibration mode on mobile devices leads to the fastest awareness (84.62% noticed).
+•	Sound only mode (76.25% noticed) and sound with vibrate (78.95% noticed) were less effective than silent or vibrate only modes.
 
- 3. Factors Influencing Decision Time
-- Sender-Recipient Relationship: Notifications from partners were handled fastest (avg. 3.3s), followed by immediate family (4.9s). Extended family and service providers had the longest decision times (11.9s and 8.1s, respectively).
-- Notification Priority: High-priority (foreground) notifications received quicker responses (avg. 11.9s) compared to low-priority ones (25.9s).
+2.	Factors that influence seen time:
+•	Alert Modality: Vibrate only notifications on mobile devices were seen fastest (avg. 3m 21s), which are followed by the sound with vibrate (4m 50s), 
+  sound only (5m 57s), and silent (7m 33s).
+•	Ongoing Task: Notifications on mobile devices were seen fastest during communication tasks (avg. 47s) and slowest when users were idle (9m 30s).
+•	Task Complexity: Tasks which were more complex correlated with faster seen times, possibly due to increased alertness.
 
- 4. Perceived Disruption
-- Task Complexity: Strong positive correlation between task complexity and perceived disruption.
-- Task Completion Level: Notifications were most disruptive when users were in the middle of or finishing a task, least disruptive when starting a task or idle.
-- Sender Type: Messages from subordinates at work and system messages were most disruptive, while those from extended family were least disruptive.
+3.	Factors influencing Decision Time:
+•	Sender Recipient Relationship: Notifications from partners were handled fastest (avg. 3.3s), followed by immediate family (4.9s). Extended family and 
+  service providers had the longest decision times (11.9s and 8.1s respectively).
+•	Notification Priority: High-priority (foreground) notifications received quicker responses (avg. 11.9s) compared to low-priority ones (25.9s).
 
- 5. Personality Influence
-- Extroverts reported higher levels of perceived disruption.
-- Extroversion, Conscientiousness, and Neuroticism significantly influenced seen time.
-- Extroversion and Neuroticism significantly influenced decision time.
+4.	Perceived Disruption:
+•	Task Complexity: Strong positive correlation between task complexity and perceived disruption.
+•	Task Completion Level: Notifications were most disruptive when users were in the middle of or finishing a task, least disruptive when starting a task or idle.
+•	Sender Type: Messages from subordinates at work and system messages were most disruptive, while those from extended family were least disruptive.
+
+5.	Personality Influence:
+
+•	Extroverts reported higher levels of perceived disruption.
+•	Extroversion, Conscientiousness, and Neuroticism significantly influenced seen time.
+•	Extroversion and Neuroticism significantly influenced decision time.
+
+
+
