@@ -1,0 +1,23 @@
+**Summary -Intelligent Personal Assistants –
+A Systematic Literature Review**
+
+This paper presents a systematic literature review of Intelligent Personal Assistants (IPAs),
+such as Amazon Alexa, Google Assistant, and Apple Siri, which enable hands-free humandevice interaction through Natural Language User Interfaces (NLUI). IPAs leverage
+advancements in artificial intelligence (AI), speech recognition, and natural language
+processing to perform tasks like scheduling, information retrieval, and health monitoring.
+The study aims to fill a gap in existing research by providing a comprehensive review of IPA
+technologies, applications, challenges, and future opportunities.
+The review identifies five key contributions: (1) a systematic review of IPA state-of-the-art,
+(2) a taxonomy for classifying IPA characteristics, (3) a mapping of IPA usage domains, (4)
+areas of opportunity for IPA applications, and (5) an overview of commercial and noncommercial IPA systems. The paper highlights challenges related to usability, security, and
+privacy, which are critical for future research.
+The methodology follows a structured systematic review process, including planning,
+research question formulation, data collection from databases like ACM Digital Library and
+IEEE Xplore, and application of inclusion/exclusion criteria to filter relevant studies. The
+review focuses on articles published after 2012, ensuring relevance to current
+advancements. Quality assessment criteria were applied to evaluate the selected studies,
+ensuring methodological rigor.
+The paper concludes by discussing limitations, open questions, and future research
+directions, emphasizing the need for improved usability, security, and domain-specific
+applications of IPAs. This review serves as a valuable resource for researchers and
+practitioners in AI, HCI, and related fields.
