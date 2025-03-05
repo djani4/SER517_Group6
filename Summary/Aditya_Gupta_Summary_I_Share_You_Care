@@ -1,0 +1,57 @@
+**Summary -I Share, You Care: Private Status Sharing and Sender-Controlled Notifications in Mobile Instant Messaging**
+
+This research paper addresses the challenges of interruptions and privacy concerns in
+Mobile Instant Messaging (MIM) by proposing two novel design concepts: private status
+sharing and sender-controlled notifications. These concepts aim to enhance social
+awareness and reduce unnecessary disruptions in MIM communications.
+Key Issues in Current MIM Systems:
+• MIM notifications often disrupt users, especially during attention-demanding tasks.
+• Existing systems lack mechanisms for senders to control notifications, leading to
+untimely interruptions.
+• Availability indicators (e.g., read receipts, last seen) are often inaccurate and can
+create privacy concerns, social pressure, and feelings of being surveilled.
+Proposed Solutions
+1. Private Status Sharing:
+• Allows users to share custom statuses (e.g., "busy working") with selected
+partners.
+• Statuses are personal (shared only with chosen contacts), customizable
+(manually set), and reactive (displayed only when a partner sends a message).
+• This approach reduces privacy concerns and social pressure by providing
+context for unavailability without continuous disclosure.
+2. Sender-Controlled Notifications:
+• Enables senders to decide whether to alert the receiver immediately (Alert Now)
+or send the message without a notification (Don’t Alert).
+• Senders consider factors like the receiver’s status, message urgency, and their
+own availability when making this decision.
+• This feature reduces interruptions by involving senders in the notification
+decision process.
+Implementation and Evaluation
+• The researchers developed MyButler, an Android app prototype that integrates these
+concepts with KakaoTalk, a popular MIM app in Korea.
+• A two-week field study with 11 pairs of frequent KakaoTalk users revealed:
+o Private status sharing was primarily used to share real-time activities, explain
+unavailability, and reduce the expectation of immediate responses.
+o Sender-controlled notifications were used to avoid interrupting receivers,
+hide messages from others, and manage the sender’s own availability.
+Key Contributions
+1. Private status sharing helps relieve social pressure and provides a privacypreserving way to share contextual information.
+2. Sender-controlled notifications offer a novel approach to reducing interruptions by
+involving senders in the notification process.
+3. The study highlights the potential for these features to improve MIM communication
+by fostering considerate and intimate interactions.
+Design Rationale
+• Private Status Sharing: Focuses on personalization, customization, and reactive
+disclosure to address privacy and usability concerns.
+• Sender-Controlled Notifications: Emphasizes unobtrusive and easy-to-use
+interfaces to minimize user burden while providing meaningful control over
+notifications.
+Technical Implementation
+• MyButler leverages Android’s NotificationListenerService and Firebase for real-time
+communication between sender and receiver apps.
+• It mutes KakaoTalk notifications and manages them based on the sender’s chosen
+notification option.
+Conclusion:
+The study demonstrates that private status sharing and sender-controlled notifications can
+significantly improve MIM experiences by reducing interruptions, enhancing privacy, and
+fostering more considerate communication. These findings offer valuable insights for
+designing future MIM systems that prioritize user well-being and social awareness.
