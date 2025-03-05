@@ -1,4 +1,4 @@
-Summary for Deep Learning & Sensor Data Processing Concepts for Enhanced User Availability Prediction
+**Summary for Deep Learning & Sensor Data Processing Concepts for Enhanced User Availability Prediction**
 
 This review examines advanced techniques in deep learning and sensor data processing that can potentially broaden the scope of our project. I focused on understanding how methods like CNN-LSTM architectures, sliding window approaches for time-series analysis, and multi-sensor fusion work to extract meaningful patterns from raw sensor data. These techniques are designed to capture complex behavioral cues, which could improve our ability to predict user availability more accurately.
 
