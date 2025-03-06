@@ -1,4 +1,4 @@
-**Dataset** - Primarily the dataset contained 77 Columns containing sensor data and other general infomartion regarding the users filtering out any privacy and security concerns.
+**Dataset** - Primarily the dataset contained 77 Columns containing sensor data and other general information regarding the users, filtering out any privacy and security concerns.
 
 **After Preprocessing** - After some data cleaning, standardizing, clearing out duplicates and any missing values, we were left with about 64 columns that contained useful information for building prompts to get predictions from ChatGPT regarding user availability. Some of the key fields include:
 
@@ -11,4 +11,4 @@ Audio_Music / Audio_Headphones: These could indicate whether the user is listeni
 Batt_Value: The battery level could indirectly affect availability (a low battery might imply the user is less available, especially if they are conserving energy).
 Ringer_Mode, DoNot_Disturb, On_Call: These settings give clues about whether the phone is in a mode that suggests interruption is unwelcome.
 
-Further, after refining the data, we can work analyze the cleaned data to work out some possible prompts using some columns from the data or possible combinations of columns to get some predictions from ChatGPT about the user's availability.
+Further, after refining the data, we can work to analyze the cleaned data to work out some possible prompts using some columns from the data or possible combinations of columns to get some predictions from ChatGPT about the user's availability.
