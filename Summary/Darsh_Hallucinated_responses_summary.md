@@ -1,0 +1,14 @@
+
+# Impact of Hallucinated like Responses by chatGPT on model Predictions
+
+## Summary
+
+Evaluated the potential of significant misinterpretation of user availability caused by hallucinated prompts such as "User is using computer" or "User is resting." These kinds of made-up events pose several kinds of concerns. It's possible for ChatGPT to make inaccurate assumptions, like supposing that the claim that user is "resting" or "using a computer," which aren't reflected in the real dataset provided by the professor. This results in incorrect projections, such as assuming unavailability because of rest, which is false without supporting data even though it makes sense on its own. Such behavior presents a substantial amount of risk when the model is used in systems that demand high accuracy and accountability since it resembles human-like intuition or predictions.
+
+The purpose of the task was to evaluate the usefulness of hallucinated clues in actual environments. ChatGPT produces inaccurate predictions on user responsiveness when it makes assumptions about things like "user is resting" or "user is using computer" without any supporting data from the structured dataset. These errors are especially harmful in sensitive fields like healthcare applications, where a delayed signal could have an impact on patient outcomes, or automobile systems, where a false distraction detection could disrupt essential communications. In certain situations, hallucinations may result in incorrect alerts, incorrectly categorized user states, or even issues with liability.
+
+Additionally, users' confidence in the AI system's predictions is reduced by hallucinated responses. Users or developers might underestimate the system's overall dependability if they understand that AI outputs are produced from speculative context rather than validated facts. The necessity of rigorous data alignment in quick building is emphasized by this. Finally, hallucinated signals can seriously impair the credibility, efficacy, and acceptance of intelligent systems in mission-critical environments by producing a false impression of intelligence.
+
+## Conclusion
+
+The practical risks of hallucinated responses in real-world applications were the main emphasis of this task. ChatGPT may make inaccurate predictions about user availability when it makes assumptions about things like "user is resting" or "user is using computer" without any supporting information. Sensitive applications including emergency communication systems, driving status monitoring, and healthcare are particularly affected by these errors. Systems may incorrectly identify a user as unavailable or preoccupied due to hallucinated inputs, even when there is no data to back up that assertion. These mistakes make AI-driven predictions less reliable.
