@@ -1,0 +1,55 @@
+**Building Prompts for Availability Prediction**
+
+Below are some key points and guidelines I considered when building prompts that aimed to extract predictions from our sensor data:
+
+1. Clearly Define the Prediction Task
+2. Describe the Dataset and Key Features
+3. Specify Data Processing Requirements
+4. Outline the Prediction Logic
+5. Request Explanation and Reasoning
+6. Specify the Expected Output Format
+7. Ask for Iterative Refinement
+
+**Reasoning for Predicting Availability**
+
+When predicting whether a user is available to respond, we would typically try to combine signals that reflect their context:
+
+1. Time Context:
+
+  -HourOfDay & DayOfWeek: Users are generally more likely to be available outside of work hours or during breaks. For instance, if the HourOfDay is during lunch or after typical work hours, the probability of being available might be higher.
+  -WorkingDay Indicator: If it’s a working day and the hour falls within business hours, a user might be less available.
+
+2.Phone Usage and App Activity:
+
+  -App_Value: Certain apps (like messaging or social apps) might suggest that the user is in a communicative state, whereas if the active app is a work-related or launcher app, it may indicate that the user is simply using their phone passively.
+  -Audio Indicators (Audio_Music, Audio_Headphones): If the user is listening to music (and especially if headphones are in use), they might be less likely to notice incoming notifications.
+
+3. Phone Settings:
+
+  -DoNot_Disturb & Ringer_Mode: If the phone is in “Do Not Disturb” mode or set to “Silent”, this is a strong indicator that the user prefers not to be interrupted.
+  -On_Call: Being on a call generally means that the user is occupied.
+
+4. Battery Level:
+
+  -Batt_Value: Very low battery levels might prompt the user to avoid further engagement (if, for example, they are about to turn off their device).
+
+5. Other Sensor Data:
+
+  -Features such as “Background_Convo” or other ambient metrics might indicate that the user is in a busy or noisy environment, which could also correlate with reduced responsiveness.
+
+I aggregated the data so that for each user (identified by their uuid), we use their most recent record to predict whether they are available to respond. The rules used in the heuristic are as follows:
+
+  -Do Not Disturb: If DoNot_Disturb is set to “all”, then the user is assumed not to be available.
+  -Ringer Mode: If the phone’s Ringer_Mode is “SILENT”, then the user is assumed not to be available.
+  -On Call: If the user is currently on a call (On_Call > 0), then the user is assumed not to be available.
+  -Working Hours on a Working Day: If it is a working day (WorkingDay = 1) and the HourOfDay is between 9 and 17 (typical working hours), we assume the user is busy.
+  -Otherwise: The user is assumed to be available.
+
+Explanation For the Predictions:
+
+  -Users with "DoNot_Disturb" set to "all" are assumed to not want interruptions.
+  -Users with the phone in "SILENT" mode are assumed to have disabled audible notifications.
+  -Users who are currently on a call are assumed to be occupied.
+  -Users on a working day between 9 AM and 5 PM are assumed to be busy.
+  -All other cases are treated as available.
+
