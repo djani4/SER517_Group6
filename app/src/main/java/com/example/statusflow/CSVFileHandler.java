@@ -56,7 +56,7 @@ public class CSVFileHandler {
                     continue;
                 }
 
-
+                // Create a map for the current row
                 Map<String, String> rowData = new HashMap<>();
                 for (int i = 0; i < headers.length; i++) {
                     rowData.put(headers[i], row.get(i));
@@ -66,7 +66,7 @@ public class CSVFileHandler {
             }
         } catch (IOException e) {
             Log.e(TAG, "Error reading CSV file", e);
-            return null;
+            return null; // Indicate failure
         } finally {
             if (reader != null) {
                 try {

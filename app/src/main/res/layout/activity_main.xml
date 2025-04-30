@@ -7,26 +7,33 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/selectFileButton"
+        android:id="@+id/csvButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select CSV File"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="CSV Mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sensorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Sensor Mode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/csvButton" />
 
-    <TextView
-        android:id="@+id/responseTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="Response will appear here"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectFileButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
