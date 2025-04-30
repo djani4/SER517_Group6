@@ -13,58 +13,66 @@ import android.media.AudioManager;
 import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.provider.CalendarContract;
+import android.util.Log;
 
 import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
-public class PhoneDataCollector {
+public class PhoneDataCollector implements SensorEventListener {
+    private static final String TAG = "PhoneDataCollector";
     private final Context context;
     private final SensorManager sensorManager;
     private final Sensor lightSensor;
-    private Float currentLightLevel;
-
-    private final SensorEventListener sensorEventListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
-                currentLightLevel = event.values[0];
-            }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        }
-    };
+    private final Sensor accelerometer;
+    private final AtomicReference<Float> currentLightLevel = new AtomicReference<>();
+    private final AtomicReference<Triple<Float, Float, Float>> currentAccelerometerData = new AtomicReference<>();
 
     private final DeviceStateManager deviceStateManager;
     private final ActivityDataManager activityDataManager;
+
+    private boolean isListening = false;
 
     public PhoneDataCollector(Context context) {
         this.context = context;
         this.sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         this.lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        this.accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         this.deviceStateManager = new DeviceStateManager(context);
         this.activityDataManager = new ActivityDataManager(context);
+        currentLightLevel.set(null);
+        currentAccelerometerData.set(null);
+    }
+
+    public void startListening() {
+        if (!isListening) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.BODY_SENSORS) == PackageManager.PERMISSION_GRANTED) {
+                if (lightSensor != null) {
+                    sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+                    Log.d(TAG, "Light sensor listener registered");
+                }
+                if (accelerometer != null) {
+                    sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+                    Log.d(TAG, "Accelerometer sensor listener registered");
+                }
+            } else {
+                Log.e(TAG, "Missing permission BODY_SENSORS to register sensor listeners");
+            }
+            isListening = true;
+        }
+    }
+
+    public void stopListening() {
+        if (isListening) {
+            sensorManager.unregisterListener(this);
+            isListening = false;
+            Log.d(TAG, "Sensor listener unregistered");
+        }
     }
 
     public PhoneData collectData() {
-
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.BODY_SENSORS) == PackageManager.PERMISSION_GRANTED) {
-            if (lightSensor != null) {
-                sensorManager.registerListener(sensorEventListener, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
-                try {
-                    Thread.sleep(200);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                sensorManager.unregisterListener(sensorEventListener);
-            }
-        }
-
-
         boolean isSilent = deviceStateManager.isSilentModeOn();
         boolean isScreenOn = deviceStateManager.isScreenOn();
         int batteryLevel = deviceStateManager.getBatteryLevel();
@@ -74,12 +82,13 @@ public class PhoneDataCollector {
         boolean hasEvent = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CALENDAR) == PackageManager.PERMISSION_GRANTED && activityDataManager.hasCalendarEventNow();
 
         return new PhoneData(
-                currentLightLevel,
+                currentLightLevel.get(),
                 isSilent,
                 isScreenOn,
                 batteryLevel,
                 recentApps,
-                hasEvent
+                hasEvent,
+                currentAccelerometerData.get()
         );
     }
 
@@ -89,6 +98,31 @@ public class PhoneDataCollector {
                 AppOpsManager.OPSTR_GET_USAGE_STATS,
                 android.os.Process.myUid(), context.getPackageName());
         return mode == AppOpsManager.MODE_ALLOWED;
+    }
+
+    public Triple<Float, Float, Float> getCurrentAccelerometerData() {
+        return currentAccelerometerData.get();
+    }
+
+    public Float getCurrentLightLevel() {
+        return currentLightLevel.get();
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+            currentLightLevel.set(event.values[0]);
+        } else if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            float x = event.values[0];
+            float y = event.values[1];
+            float z = event.values[2];
+            currentAccelerometerData.set(new Triple<>(x, y, z));
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        Log.d(TAG, "Accuracy changed for sensor: " + sensor.getName() + ", Accuracy: " + accuracy);
     }
 }
 
